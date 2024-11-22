@@ -12,6 +12,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_sln", "_sln", "{35FF8692-4
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.WebApi", "src\Europhonium.WebApi\Europhonium.WebApi.csproj", "{C58D1743-888E-42E7-8088-345F68BF764D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Application", "src\Europhonium.Application\Europhonium.Application.csproj", "{D611344A-EC85-4B18-ACD4-20A03AFBF6E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Domain", "src\Europhonium.Domain\Europhonium.Domain.csproj", "{3B012A06-FFCC-4353-AF80-4ED2B41C3350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Infrastructure", "src\Europhonium.Infrastructure\Europhonium.Infrastructure.csproj", "{BA424AEB-C367-4567-AF72-3EC1891B4F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Endpoints", "src\Europhonium.Endpoints\Europhonium.Endpoints.csproj", "{4F234455-B2C6-406E-A70F-FBC035B5C7DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Contracts", "src\Europhonium.Contracts\Europhonium.Contracts.csproj", "{F31B3955-E161-425E-8C1F-E93D0F04728E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +33,39 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C58D1743-888E-42E7-8088-345F68BF764D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58D1743-888E-42E7-8088-345F68BF764D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58D1743-888E-42E7-8088-345F68BF764D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58D1743-888E-42E7-8088-345F68BF764D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D611344A-EC85-4B18-ACD4-20A03AFBF6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D611344A-EC85-4B18-ACD4-20A03AFBF6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D611344A-EC85-4B18-ACD4-20A03AFBF6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D611344A-EC85-4B18-ACD4-20A03AFBF6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B012A06-FFCC-4353-AF80-4ED2B41C3350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B012A06-FFCC-4353-AF80-4ED2B41C3350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B012A06-FFCC-4353-AF80-4ED2B41C3350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B012A06-FFCC-4353-AF80-4ED2B41C3350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA424AEB-C367-4567-AF72-3EC1891B4F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA424AEB-C367-4567-AF72-3EC1891B4F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA424AEB-C367-4567-AF72-3EC1891B4F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA424AEB-C367-4567-AF72-3EC1891B4F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F234455-B2C6-406E-A70F-FBC035B5C7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F234455-B2C6-406E-A70F-FBC035B5C7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F234455-B2C6-406E-A70F-FBC035B5C7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F234455-B2C6-406E-A70F-FBC035B5C7DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31B3955-E161-425E-8C1F-E93D0F04728E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31B3955-E161-425E-8C1F-E93D0F04728E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31B3955-E161-425E-8C1F-E93D0F04728E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31B3955-E161-425E-8C1F-E93D0F04728E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C58D1743-888E-42E7-8088-345F68BF764D} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
+		{D611344A-EC85-4B18-ACD4-20A03AFBF6E9} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
+		{3B012A06-FFCC-4353-AF80-4ED2B41C3350} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
+		{BA424AEB-C367-4567-AF72-3EC1891B4F1F} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
+		{4F234455-B2C6-406E-A70F-FBC035B5C7DE} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
+		{F31B3955-E161-425E-8C1F-E93D0F04728E} = {ADCEC666-0B68-4AF0-BE6B-4EC0C64C5E75}
 	EndGlobalSection
 EndGlobal
