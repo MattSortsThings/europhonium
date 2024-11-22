@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: "europhonium-api"
+
 jobs:
   build:
     runs-on: windows-latest
@@ -26,3 +29,11 @@ jobs:
 
       - name: Publish
         run: dotnet publish ./src/Europhonium.WebApi/Europhonium.WebApi.csproj --configuration Release --output ./publish
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: $${{ secrets.API_PUBLISH_SECRET }}
+          package: ./publish
+  
