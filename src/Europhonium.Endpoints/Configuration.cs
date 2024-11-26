@@ -1,4 +1,3 @@
-using FastEndpoints;
 using Microsoft.AspNetCore.Builder;
 
 namespace Europhonium.Endpoints;

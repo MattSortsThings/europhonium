@@ -10,4 +10,8 @@
     <PackageReference Include="FastEndpoints.Attributes" Version="5.31.0"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="FastEndpoints"/>
+  </ItemGroup>
+
 </Project>

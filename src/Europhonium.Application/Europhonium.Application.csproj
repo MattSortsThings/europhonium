@@ -15,4 +15,9 @@
     <ProjectReference Include="..\Europhonium.Domain\Europhonium.Domain.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="ErrorOr"/>
+    <Using Include="MediatR"/>
+  </ItemGroup>
+
 </Project>

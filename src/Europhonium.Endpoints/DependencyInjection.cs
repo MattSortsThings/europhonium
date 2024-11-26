@@ -1,4 +1,3 @@
-using FastEndpoints;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Europhonium.Endpoints;

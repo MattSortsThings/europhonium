@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Europhonium.Contracts\Europhonium.Contracts.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="FastEndpoints"/>
+  </ItemGroup>
+
 </Project>
