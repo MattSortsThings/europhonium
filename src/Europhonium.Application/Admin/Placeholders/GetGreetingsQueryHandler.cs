@@ -1,7 +1,11 @@
 namespace Europhonium.Application.Admin.Placeholders;
 
-internal sealed class GetGreetingsQueryHandler : IRequestHandler<GetGreetingsQuery, string[]>
+internal sealed class GetGreetingsQueryHandler : IRequestHandler<GetGreetingsQuery, ErrorOr<string[]>>
 {
-    public Task<string[]> Handle(GetGreetingsQuery request, CancellationToken cancellationToken) =>
-        Task.FromResult(Enumerable.Repeat("Hello World", request.Quantity).ToArray());
+    public async Task<ErrorOr<string[]>> Handle(GetGreetingsQuery request, CancellationToken cancellationToken)
+    {
+        await Task.CompletedTask;
+
+        return Enumerable.Repeat("Hello World!", request.Quantity).ToArray();
+    }
 }

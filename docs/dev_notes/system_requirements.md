@@ -56,7 +56,7 @@ This document outlines the system requirements for the *Europhonium* project.
     - [S/1 - Documentation](#s1---documentation)
       - [S/1/1 - Swagger documents (completed 27/11/2024)](#s11---swagger-documents-completed-27112024)
     - [S/2 - Error handling](#s2---error-handling)
-      - [S/2/1 - Problem details](#s21---problem-details)
+      - [S/2/1 - Railway architecture](#s21---railway-architecture)
       - [S/2/2 - Global exception handling (completed 27/11/2024)](#s22---global-exception-handling-completed-27112024)
     - [S/3 - Security](#s3---security)
       - [S/3/1 - Admin API key](#s31---admin-api-key)
@@ -248,9 +248,9 @@ The system will serve two Swagger documents in development and production: one f
 
 ### S/2 - Error handling
 
-#### S/2/1 - Problem details
+#### S/2/1 - Railway architecture
 
-Any request to an endpoint that results in an error produces a response with the appropriate error status code and a serialized problem details object in the body.
+Every endpoint class uses the same railway architecture. The endpoint maps an incoming request to an application query/command object and dispatches it to the app pipeline. The pipeline returns *either* an instance of the designated app result type for the query/command type *or* an `Error`. The endpoint maps an app result object to a successful `IResult` object, and maps an `Error` to a `ProblemHttpResult` object containing a `ProblemDetails` object.
 
 #### S/2/2 - Global exception handling (completed 27/11/2024)
 

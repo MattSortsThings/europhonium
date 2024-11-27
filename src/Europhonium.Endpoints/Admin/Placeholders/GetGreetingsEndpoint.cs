@@ -1,13 +1,18 @@
 using Europhonium.Application.Admin.Placeholders;
 using Europhonium.Contracts.Admin.Placeholders;
-using MediatR;
+using Europhonium.Endpoints.Shared.Endpoints;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Europhonium.Endpoints.Admin.Placeholders;
 
-internal sealed class GetGreetingsEndpoint(ISender sender) : Endpoint<GetGreetingsRequest, Ok<GetGreetingsResponse>>
+internal sealed class GetGreetingsEndpoint :
+    RailwayEndpoint<GetGreetingsRequest, GetGreetingsQuery, string[], Ok<GetGreetingsResponse>>
 {
+    public GetGreetingsEndpoint(ISender sender) : base(sender)
+    {
+    }
+
     public override void Configure()
     {
         Get("greetings");
@@ -16,12 +21,8 @@ internal sealed class GetGreetingsEndpoint(ISender sender) : Endpoint<GetGreetin
         Summary(summary => summary.Summary = "Generates the specified quantity of greetings");
     }
 
-    public override async Task<Ok<GetGreetingsResponse>> ExecuteAsync(GetGreetingsRequest req, CancellationToken ct)
-    {
-        GetGreetingsQuery query = new(req.Quantity);
+    private protected override GetGreetingsQuery MapToAppRequest(GetGreetingsRequest request) => new(request.Quantity);
 
-        var greetings = await sender.Send(query, ct);
-
-        return TypedResults.Ok(new GetGreetingsResponse(greetings));
-    }
+    private protected override Ok<GetGreetingsResponse> MapToResult(string[] appResult) =>
+        TypedResults.Ok(new GetGreetingsResponse(appResult));
 }

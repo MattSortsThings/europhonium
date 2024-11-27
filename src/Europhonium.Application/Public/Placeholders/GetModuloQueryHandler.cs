@@ -1,13 +1,16 @@
 namespace Europhonium.Application.Public.Placeholders;
 
-internal sealed class GetModuloQueryHandler : IRequestHandler<GetModuloQuery, GetModuloResult>
+internal sealed class GetModuloQueryHandler : IRequestHandler<GetModuloQuery, ErrorOr<GetModuloResult>>
 {
-    public async Task<GetModuloResult> Handle(GetModuloQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<GetModuloResult>> Handle(GetModuloQuery request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 
-        var remainder = request.Dividend % request.Modulus;
+        if (request.Modulus == 0)
+        {
+            return Error.Validation("DivideByZero", "Modulus cannot be zero.");
+        }
 
-        return new GetModuloResult(request.Dividend, request.Modulus, remainder);
+        return new GetModuloResult(request.Dividend, request.Modulus, request.Dividend % request.Modulus);
     }
 }

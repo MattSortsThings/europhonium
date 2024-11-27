@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Using Include="FastEndpoints"/>
+    <Using Include="MediatR"/>
   </ItemGroup>
 
 </Project>
