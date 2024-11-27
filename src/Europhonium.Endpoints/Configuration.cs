@@ -11,7 +11,17 @@ public static class Configuration
     /// <returns>The same <see cref="WebApplication" /> instance, so that method invocations can be chained.</returns>
     public static WebApplication UseEndpoints(this WebApplication app)
     {
-        app.UseFastEndpoints(config => { config.Endpoints.RoutePrefix = "api"; });
+        app.UseFastEndpoints(config =>
+        {
+            config.Endpoints.RoutePrefix = "api";
+            config.Endpoints.Configurator = definition =>
+            {
+                if (definition.Routes[0].StartsWith("swagger"))
+                {
+                    definition.AllowAnonymous();
+                }
+            };
+        });
 
         return app;
     }

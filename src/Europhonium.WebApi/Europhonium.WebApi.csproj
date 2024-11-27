@@ -4,11 +4,16 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>79e9e528-8c85-4997-b534-fc61a3641454</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Europhonium.Endpoints\Europhonium.Endpoints.csproj"/>
     <ProjectReference Include="..\Europhonium.Infrastructure\Europhonium.Infrastructure.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0"/>
   </ItemGroup>
 
 </Project>

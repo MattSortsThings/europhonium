@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Europhonium.WebApi.Tests.Acceptance.Features.Shared
+namespace Europhonium.WebApi.Tests.Acceptance.Features.Shared.Documentation
 {
     using Reqnroll;
     using System;
@@ -26,7 +26,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Shared
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Shared", "Swagger Documents", ("The system will serve two Swagger documents in development and production:\r\none f" +
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Shared/Documentation", "Swagger Documents", ("The system will serve two Swagger documents in development and production:\r\none f" +
                 "or the Admin API\r\nand one for the Public API"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;

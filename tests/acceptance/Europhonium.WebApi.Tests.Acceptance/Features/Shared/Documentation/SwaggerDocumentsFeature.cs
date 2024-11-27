@@ -1,6 +1,6 @@
 using Europhonium.WebApi.Tests.Acceptance.Utils.Categories;
 
-namespace Europhonium.WebApi.Tests.Acceptance.Features.Shared;
+namespace Europhonium.WebApi.Tests.Acceptance.Features.Shared.Documentation;
 
 [Expensive]
 [DatabaseTest]

@@ -1,3 +1,5 @@
+using Europhonium.Endpoints.Shared.Security;
+
 namespace Europhonium.Endpoints.Public;
 
 internal sealed class PublicEndpointGroup : Group
@@ -6,7 +8,7 @@ internal sealed class PublicEndpointGroup : Group
     {
         Configure("public", definition =>
         {
-            definition.AllowAnonymous();
+            definition.Policies(SecurityConstants.Policies.AdminOrUser);
             definition.Tags(nameof(PublicEndpointGroup));
         });
     }

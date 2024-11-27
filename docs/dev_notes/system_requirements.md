@@ -60,7 +60,7 @@ This document outlines the system requirements for the *Europhonium* project.
       - [S/2/2 - Global exception handling (completed 27/11/2024)](#s22---global-exception-handling-completed-27112024)
     - [S/3 - Security](#s3---security)
       - [S/3/1 - Admin API key (completed 27/11/2024)](#s31---admin-api-key-completed-27112024)
-      - [S/3/2 - Public API key](#s32---public-api-key)
+      - [S/3/2 - Public API key (completed 27/11/2024)](#s32---public-api-key-completed-27112024)
 
 ## User profiles
 
@@ -262,5 +262,5 @@ If an uncaught exception is thrown when handling a request, the response has sta
 
 A request to an *Admin API* endpoint must include the secret *Admin API key* as an `"X-Api-Key"` request header value.
 
-#### S/3/2 - Public API key
+#### S/3/2 - Public API key (completed 27/11/2024)
 A request to a *Public API* endpoint must include either the *Public API key* or the secret *Admin API key* as an `"X-Api-Key"` request header value.

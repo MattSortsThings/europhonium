@@ -21,7 +21,9 @@ internal static class DependencyInjection
 
         services.AddAuthorizationBuilder()
             .AddPolicy(SecurityConstants.Policies.AdminOnly, builder =>
-                builder.RequireRole(SecurityConstants.Roles.Admin));
+                builder.RequireRole(SecurityConstants.Roles.Admin))
+            .AddPolicy(SecurityConstants.Policies.AdminOrUser, builder =>
+                builder.RequireRole(SecurityConstants.Roles.Admin, SecurityConstants.Roles.User));
 
         return services;
     }
