@@ -1,0 +1,40 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - europhonium-api
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: "europhonium"
+  DOTNET_PUBLISH_DIRECTORY: "./publish"
+
+jobs:
+  publish-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Install dependencies
+        run: dotnet restore ./src/Europhonium.WebApi/Europhonium.WebApi.csproj
+
+      - name: Build
+        run: dotnet build ./src/Europhonium.WebApi/Europhonium.WebApi.csproj --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish ./src/Europhonium.WebApi/Europhonium.WebApi.csproj --configuration Release --output ${{ env.DOTNET_PUBLISH_DIRECTORY }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: 'Production'
+          publish-profile: $${{ secrets.API_PUBLISH_SECRET }}
+          package: ${{ env.DOTNET_PUBLISH_DIRECTORY }}
