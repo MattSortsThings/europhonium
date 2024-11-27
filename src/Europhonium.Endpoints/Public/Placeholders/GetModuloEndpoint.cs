@@ -12,6 +12,8 @@ internal sealed class GetModuloEndpoint(ISender sender) : Endpoint<GetModuloRequ
     {
         Get("modulo/{dividend:int}/{modulus:int}");
         Group<PlaceholderEndpointGroup>();
+        Description(builder => builder.Produces<GetModuloResponse>());
+        Summary(summary => summary.Summary = "Performs a modulo calculation");
     }
 
     public override async Task<Ok<GetModuloResponse>> ExecuteAsync(GetModuloRequest req, CancellationToken ct)

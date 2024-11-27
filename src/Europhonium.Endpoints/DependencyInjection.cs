@@ -1,3 +1,4 @@
+using Europhonium.Endpoints.Shared.Documentation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Europhonium.Endpoints;
@@ -11,7 +12,8 @@ public static class DependencyInjection
     /// <returns>The same <see cref="IServiceCollection" /> instance, so that method invocations can be chained.</returns>
     public static IServiceCollection AddEndpointsServices(this IServiceCollection services)
     {
-        services.AddFastEndpoints();
+        services.AddFastEndpoints()
+            .AddDocumentationServices();
 
         return services;
     }

@@ -4,6 +4,10 @@ internal sealed class PublicEndpointGroup : Group
 {
     public PublicEndpointGroup()
     {
-        Configure("public", definition => { definition.AllowAnonymous(); });
+        Configure("public", definition =>
+        {
+            definition.AllowAnonymous();
+            definition.Tags(nameof(PublicEndpointGroup));
+        });
     }
 }

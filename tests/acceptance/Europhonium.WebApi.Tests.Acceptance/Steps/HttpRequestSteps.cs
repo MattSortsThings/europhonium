@@ -15,7 +15,7 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     {
         var route = $"api/admin/placeholders/greetings?quantity={quantity}";
 
-        HttpResponseMessage? response = await Client.GetAsync(route);
+        HttpResponseMessage response = await Client.GetAsync(route);
 
         scenarioContext.Set(response.StatusCode);
     }
@@ -25,7 +25,27 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     {
         var route = $"api/public/placeholders/modulo/{dividend}/{modulus}";
 
-        HttpResponseMessage? response = await Client.GetAsync(route);
+        HttpResponseMessage response = await Client.GetAsync(route);
+
+        scenarioContext.Set(response.StatusCode);
+    }
+
+    [When("I request the Swagger page")]
+    public async Task WhenIRequestTheSwaggerPage()
+    {
+        const string route = "swagger";
+
+        HttpResponseMessage response = await Client.GetAsync(route);
+
+        scenarioContext.Set(response.StatusCode);
+    }
+
+    [When("""I request the "(.*)" Swagger document""")]
+    public async Task WhenIRequestTheSwaggerDocument(string documentName)
+    {
+        var route = $"swagger/{documentName}/swagger.json";
+
+        HttpResponseMessage response = await Client.GetAsync(route);
 
         scenarioContext.Set(response.StatusCode);
     }

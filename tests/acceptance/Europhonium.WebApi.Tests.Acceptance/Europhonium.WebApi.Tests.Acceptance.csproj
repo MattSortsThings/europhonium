@@ -43,4 +43,14 @@
     <ProjectReference Include="..\..\..\src\Europhonium.WebApi\Europhonium.WebApi.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Features\Admin\Placeholders\GetGreetings.feature"/>
+    <UpToDateCheckInput Remove="Features\Public\Placeholders\GetModulo.feature"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckBuild Remove="Features\Admin\Placeholders\GetGreetings.feature.cs"/>
+    <UpToDateCheckBuild Remove="Features\Public\Placeholders\GetModulo.feature.cs"/>
+  </ItemGroup>
+
 </Project>

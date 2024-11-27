@@ -1,6 +1,7 @@
 using Europhonium.Application;
 using Europhonium.Endpoints;
 using Europhonium.Infrastructure;
+using FastEndpoints.Swagger;
 
 namespace Europhonium.WebApi;
 
@@ -30,6 +31,8 @@ internal static class Startup
         app.UseHttpsRedirection();
 
         app.UseEndpoints();
+
+        app.UseSwaggerGen();
 
         return app;
     }

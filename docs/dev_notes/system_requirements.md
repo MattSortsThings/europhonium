@@ -54,7 +54,7 @@ This document outlines the system requirements for the *Europhonium* project.
         - [P/2/4/5 - Get Points Similarity Overall Voter Rankings](#p245---get-points-similarity-overall-voter-rankings)
   - [S - Shared requirements](#s---shared-requirements)
     - [S/1 - Documentation](#s1---documentation)
-      - [S/1/1 - Swagger documents](#s11---swagger-documents)
+      - [S/1/1 - Swagger documents (completed 27/11/2024)](#s11---swagger-documents-completed-27112024)
     - [S/2 - Error handling](#s2---error-handling)
       - [S/2/1 - Problem details](#s21---problem-details)
       - [S/2/2 - Global exception handling](#s22---global-exception-handling)
@@ -242,7 +242,7 @@ As a EuroFan, I want to rank each voting country overall by the **cosine similar
 
 ### S/1 - Documentation
 
-#### S/1/1 - Swagger documents
+#### S/1/1 - Swagger documents (completed 27/11/2024)
 
 The system will serve two Swagger documents in development and production: one for the *Admin API* and one for the *Public API*.
 

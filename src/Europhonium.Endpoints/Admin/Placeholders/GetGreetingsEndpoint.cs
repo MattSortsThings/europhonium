@@ -12,6 +12,8 @@ internal sealed class GetGreetingsEndpoint(ISender sender) : Endpoint<GetGreetin
     {
         Get("greetings");
         Group<PlaceholderEndpointGroup>();
+        Description(builder => builder.Produces<GetGreetingsResponse>());
+        Summary(summary => summary.Summary = "Generates the specified quantity of greetings");
     }
 
     public override async Task<Ok<GetGreetingsResponse>> ExecuteAsync(GetGreetingsRequest req, CancellationToken ct)
