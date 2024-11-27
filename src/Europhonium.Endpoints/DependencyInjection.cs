@@ -1,4 +1,5 @@
 using Europhonium.Endpoints.Shared.Documentation;
+using Europhonium.Endpoints.Shared.ErrorHandling;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Europhonium.Endpoints;
@@ -13,7 +14,8 @@ public static class DependencyInjection
     public static IServiceCollection AddEndpointsServices(this IServiceCollection services)
     {
         services.AddFastEndpoints()
-            .AddDocumentationServices();
+            .AddDocumentationServices()
+            .AddErrorHandlingServices();
 
         return services;
     }

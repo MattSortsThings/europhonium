@@ -20,11 +20,11 @@ internal sealed class GetModuloEndpoint(ISender sender) : Endpoint<GetModuloRequ
     {
         GetModuloQuery query = new(req.Dividend, req.Modulus);
 
-        var remainder = await sender.Send(query, ct);
+        GetModuloResult? result = await sender.Send(query, ct);
 
-        return TypedResults.Ok(new GetModuloResponse(req.Dividend,
-            req.Modulus,
-            remainder,
+        return TypedResults.Ok(new GetModuloResponse(result.Dividend,
+            result.Modulus,
+            result.Remainder,
             DateOnly.FromDateTime(DateTime.UtcNow)));
     }
 }

@@ -13,7 +13,7 @@ namespace Europhonium.Endpoints.Shared.Documentation;
 internal static class DependencyInjection
 {
     /// <summary>
-    ///     Registers the Swagger documentation services for the web application.
+    ///     Registers the Swagger documentation services for the endpoints.
     /// </summary>
     /// <param name="services">Contains service descriptors for the web application.</param>
     /// <returns>The same <see cref="IServiceCollection" /> instance, so that method invocations can be chained.</returns>

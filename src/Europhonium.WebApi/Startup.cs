@@ -30,9 +30,13 @@ internal static class Startup
     {
         app.UseHttpsRedirection();
 
-        app.UseEndpoints();
+        app.UseStatusCodePages();
+
+        app.UseExceptionHandler();
 
         app.UseSwaggerGen();
+
+        app.UseEndpoints();
 
         return app;
     }

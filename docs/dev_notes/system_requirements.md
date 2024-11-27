@@ -57,7 +57,7 @@ This document outlines the system requirements for the *Europhonium* project.
       - [S/1/1 - Swagger documents (completed 27/11/2024)](#s11---swagger-documents-completed-27112024)
     - [S/2 - Error handling](#s2---error-handling)
       - [S/2/1 - Problem details](#s21---problem-details)
-      - [S/2/2 - Global exception handling](#s22---global-exception-handling)
+      - [S/2/2 - Global exception handling (completed 27/11/2024)](#s22---global-exception-handling-completed-27112024)
     - [S/3 - Security](#s3---security)
       - [S/3/1 - Admin API key](#s31---admin-api-key)
       - [S/3/2 - Public API key](#s32---public-api-key)
@@ -252,7 +252,7 @@ The system will serve two Swagger documents in development and production: one f
 
 Any request to an endpoint that results in an error produces a response with the appropriate error status code and a serialized problem details object in the body.
 
-#### S/2/2 - Global exception handling
+#### S/2/2 - Global exception handling (completed 27/11/2024)
 
 If an uncaught exception is thrown when handling a request, the response has status code `500` and contains a serialized problem details object with the name of the exception but no implementation-specific details.
 
