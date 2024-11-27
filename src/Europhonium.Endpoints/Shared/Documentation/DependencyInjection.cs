@@ -2,10 +2,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Europhonium.Endpoints.Admin;
 using Europhonium.Endpoints.Public;
+using Europhonium.Endpoints.Shared.Security;
 using FastEndpoints.Swagger;
 using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 using NJsonSchema.Generation.TypeMappers;
+using NSwag;
 using NSwag.Generation.AspNetCore;
 
 namespace Europhonium.Endpoints.Shared.Documentation;
@@ -29,6 +31,7 @@ internal static class DependencyInjection
                 settings.Title = "Europhonium Public API";
                 settings.Version = "v1";
                 settings.AddTypeMappers();
+                settings.AddApiKeySecurity();
             };
 
             options.EnableJWTBearerAuth = false;
@@ -48,6 +51,7 @@ internal static class DependencyInjection
                 settings.Title = "Europhonium Admin API";
                 settings.Version = "v1";
                 settings.AddTypeMappers();
+                settings.AddApiKeySecurity();
             };
 
             options.EnableJWTBearerAuth = false;
@@ -71,6 +75,17 @@ internal static class DependencyInjection
                 schema.Type = JsonObjectType.String;
                 schema.Format = "uuid";
             }));
+    }
+
+    private static void AddApiKeySecurity(this AspNetCoreOpenApiDocumentGeneratorSettings settings)
+    {
+        settings.AddAuth(nameof(ApiKeyAuthenticationScheme),
+            new OpenApiSecurityScheme
+            {
+                Name = SecurityConstants.ApiKeyRequestHeaderName,
+                In = OpenApiSecurityApiKeyLocation.Header,
+                Type = OpenApiSecuritySchemeType.ApiKey
+            });
     }
 
     private static void AddSerializerSettings(this DocumentOptions options)

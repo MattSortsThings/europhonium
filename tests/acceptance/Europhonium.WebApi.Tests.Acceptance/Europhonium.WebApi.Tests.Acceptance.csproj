@@ -53,4 +53,11 @@
     <UpToDateCheckBuild Remove="Features\Public\Placeholders\GetModulo.feature.cs"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="appsettings.Test.json"/>
+    <Content Include="appsettings.Test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

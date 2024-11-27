@@ -1,3 +1,5 @@
+using Europhonium.Endpoints.Shared.Security;
+
 namespace Europhonium.Endpoints.Admin;
 
 internal sealed class AdminEndpointGroup : Group
@@ -6,7 +8,7 @@ internal sealed class AdminEndpointGroup : Group
     {
         Configure("admin", definition =>
         {
-            definition.AllowAnonymous();
+            definition.Policies(SecurityConstants.Policies.AdminOnly);
             definition.Tags(nameof(AdminEndpointGroup));
         });
     }

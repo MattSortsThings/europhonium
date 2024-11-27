@@ -16,7 +16,7 @@ internal static class Startup
     {
         builder.Services.AddApplicationServices()
             .AddInfrastructureServices()
-            .AddEndpointsServices();
+            .AddEndpointsServices(builder.Configuration);
 
         return builder;
     }
@@ -33,6 +33,10 @@ internal static class Startup
         app.UseStatusCodePages();
 
         app.UseExceptionHandler();
+
+        app.UseAuthentication();
+
+        app.UseAuthorization();
 
         app.UseSwaggerGen();
 
