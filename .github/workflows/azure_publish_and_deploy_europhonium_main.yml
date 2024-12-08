@@ -28,3 +28,26 @@ jobs:
         run: dotnet restore "${{ env.PROJECT_FILE_PATH }}"
       - name: Build
         run: dotnet build "${{ env.PROJECT_FILE_PATH }}" --configuration ${{ env.CONFIGURATION }} --no-restore
+      - name: Publish
+        run: dotnet publish "${{ env.PROJECT_FILE_PATH }}" --configuration ${{ env.CONFIGURATION }} --no-build --output $"{{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: webapp
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          retention-days: 7
+  deploy:
+    runs-on: windows-latest
+    needs: publish
+    steps:
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Deploy to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.API_PUBLISH_SECRET }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
