@@ -11,6 +11,7 @@ internal static class EndpointMapping
         routeBuilder.MapGroup("placeholders")
             .MapGet("greetings", GetGreetings.ExecuteAsync)
             .Produces<GetGreetings.Response>()
+            .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithName(nameof(GetGreetings))
             .WithDisplayName("Get Greetings");
 

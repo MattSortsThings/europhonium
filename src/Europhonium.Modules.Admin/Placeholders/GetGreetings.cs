@@ -1,3 +1,5 @@
+using ErrorOr;
+using Europhonium.Shared.Infrastructure.ErrorHandling;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -7,14 +9,15 @@ namespace Europhonium.Modules.Admin.Placeholders;
 
 public static class GetGreetings
 {
-    public static async Task<Ok<Response>> ExecuteAsync([AsParameters] Request request,
+    public static async Task<Results<Ok<Response>, ProblemHttpResult>> ExecuteAsync([AsParameters] Request request,
         ISender sender,
         CancellationToken cancellationToken = default)
     {
         Query query = new(request.Quantity, request.Language);
-        GreetingResource[]? greetings = await sender.Send(query, cancellationToken);
 
-        return TypedResults.Ok(new Response(greetings));
+        ErrorOr<GreetingResource[]> result = await sender.Send(query, cancellationToken);
+
+        return result.IsError ? result.FirstError.ToProblemHttpResult() : TypedResults.Ok(new Response(result.Value));
     }
 
     public sealed record Request
@@ -28,12 +31,21 @@ public static class GetGreetings
 
     public sealed record Response(GreetingResource[] Greetings);
 
-    private sealed record Query(int Quantity, Language Language) : IRequest<GreetingResource[]>;
+    private sealed record Query(int Quantity, Language Language) : IRequest<ErrorOr<GreetingResource[]>>;
 
-    private sealed class Handler : IRequestHandler<Query, GreetingResource[]>
+    private sealed class Handler : IRequestHandler<Query, ErrorOr<GreetingResource[]>>
     {
-        public Task<GreetingResource[]> Handle(Query request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<GreetingResource[]>> Handle(Query request, CancellationToken cancellationToken)
         {
+            await Task.CompletedTask;
+
+            if (request.Quantity < 1)
+            {
+                return Error.Validation("InvalidGreetingQuantity",
+                    "Greetings quantity must be greater than 0.",
+                    new Dictionary<string, object> { { "quantity", request.Quantity } });
+            }
+
             var greeting = request.Language switch
             {
                 Language.French => "Bonjour!",
@@ -41,10 +53,8 @@ public static class GetGreetings
                 _ => "Hi!"
             };
 
-            GreetingResource[] resources = Enumerable.Repeat(new GreetingResource(greeting, request.Language), request.Quantity)
+            return Enumerable.Repeat(new GreetingResource(greeting, request.Language), request.Quantity)
                 .ToArray();
-
-            return Task.FromResult(resources);
         }
     }
 }

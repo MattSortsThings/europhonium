@@ -1,5 +1,6 @@
 using Europhonium.Modules.Admin.Placeholders;
 using Europhonium.Modules.Admin.Tests.Integration.Utils;
+using FluentAssertions.Execution;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Europhonium.Modules.Admin.Tests.Integration.Placeholders;
@@ -15,7 +16,7 @@ public static class GetGreetingsTests
         {
         }
 
-        public static TheoryData<GetGreetings.Request, string> TestData =>
+        public static TheoryData<GetGreetings.Request, GetGreetings.Response> TestData =>
             new()
             {
                 {
@@ -24,7 +25,10 @@ public static class GetGreetingsTests
                         Quantity = 2,
                         Language = Language.English
                     },
-                    "Hi!"
+                    new GetGreetings.Response([
+                        new GreetingResource("Hi!", Language.English),
+                        new GreetingResource("Hi!", Language.English)
+                    ])
                 },
                 {
                     new GetGreetings.Request
@@ -32,31 +36,31 @@ public static class GetGreetingsTests
                         Quantity = 3,
                         Language = Language.French
                     },
-                    "Bonjour!"
-                },
-                {
-                    new GetGreetings.Request
-                    {
-                        Quantity = 5,
-                        Language = Language.Dutch
-                    },
-                    "Hoi!"
+                    new GetGreetings.Response([
+                        new GreetingResource("Bonjour!", Language.French),
+                        new GreetingResource("Bonjour!", Language.French),
+                        new GreetingResource("Bonjour!", Language.French)
+                    ])
                 }
             };
 
         [Theory]
         [MemberData(nameof(TestData), MemberType = typeof(ExecuteAsyncMethod))]
         public async Task ExecuteAsync_ValidRequest_ReturnsRequestedGreetings(GetGreetings.Request request,
-            string expectedGreeting)
+            GetGreetings.Response response)
         {
             // Act
-            Ok<GetGreetings.Response> result = await GetGreetings.ExecuteAsync(request, Sender);
+            Results<Ok<GetGreetings.Response>, ProblemHttpResult> result = await GetGreetings.ExecuteAsync(request, Sender);
 
             // Assert
-            result.Value.Should().BeOfType<GetGreetings.Response>()
-                .Which.Greetings.Should().HaveCount(request.Quantity)
-                .And.AllSatisfy(resource => resource.Greeting.Should().Be(expectedGreeting))
-                .And.AllSatisfy(resource => resource.Language.Should().Be(request.Language));
+            using (new AssertionScope())
+            {
+                result.Result.Should().BeAssignableTo<Ok<GetGreetings.Response>>()
+                    .Which.StatusCode.Should().Be(200);
+
+                result.Result.Should().BeAssignableTo<Ok<GetGreetings.Response>>()
+                    .Which.Value.Should().BeEquivalentTo(response);
+            }
         }
     }
 }

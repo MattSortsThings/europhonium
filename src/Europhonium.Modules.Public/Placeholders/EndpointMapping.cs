@@ -11,6 +11,7 @@ internal static class EndpointMapping
         routeBuilder.MapGroup("placeholders")
             .MapGet("modulo/{dividend:int}/{modulus:int}", GetModulo.ExecuteAsync)
             .Produces<GetModulo.Response>()
+            .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithName(nameof(GetModulo))
             .WithDisplayName("Get Modulo");
 
