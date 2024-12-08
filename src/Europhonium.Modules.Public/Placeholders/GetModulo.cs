@@ -12,18 +12,27 @@ public static class GetModulo
         ISender sender,
         CancellationToken cancellationToken = default)
     {
-        var remainder = await sender.Send(new Query(dividend, modulus), cancellationToken);
+        ModuloResource? modulo = await sender.Send(new Query(dividend, modulus), cancellationToken);
 
-        return TypedResults.Ok(new Response(dividend, modulus, remainder, Guid.NewGuid()));
+        return TypedResults.Ok(new Response(modulo));
     }
 
-    public sealed record Response(int Dividend, int Modulus, int Remainder, Guid RequestId);
+    public sealed record Response(ModuloResource Modulo);
 
-    private sealed record Query(int Dividend, int Modulus) : IRequest<int>;
+    private sealed record Query(int Dividend, int Modulus) : IRequest<ModuloResource>;
 
-    private sealed class Handler : IRequestHandler<Query, int>
+    private sealed class Handler : IRequestHandler<Query, ModuloResource>
     {
-        public Task<int> Handle(Query request, CancellationToken cancellationToken) =>
-            Task.FromResult(request.Dividend % request.Modulus);
+        public Task<ModuloResource> Handle(Query request, CancellationToken cancellationToken)
+        {
+            var remainder = request.Dividend % request.Modulus;
+
+            return Task.FromResult(new ModuloResource
+            {
+                Dividend = request.Dividend,
+                Modulus = request.Modulus,
+                Remainder = remainder
+            });
+        }
     }
 }

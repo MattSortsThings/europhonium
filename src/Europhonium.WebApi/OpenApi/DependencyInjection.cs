@@ -6,7 +6,7 @@ namespace Europhonium.WebApi.OpenApi;
 public static class DependencyInjection
 {
     /// <summary>
-    ///     Registers Swagger document generation for the web application.
+    ///     Registers the OpenAPI Swagger document generation services and settings for the web application.
     /// </summary>
     /// <param name="services">Contains service descriptors for the web application.</param>
     /// <returns>The same <see cref="IServiceCollection" /> instance, so that method invocations can be chained.</returns>

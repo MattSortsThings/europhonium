@@ -26,7 +26,7 @@ public static class GetModuloTests
 
             // Assert
             result.Value.Should().BeOfType<GetModulo.Response>()
-                .Which.Remainder.Should().Be(expectedRemainder);
+                .Which.Modulo.Remainder.Should().Be(expectedRemainder);
         }
     }
 }

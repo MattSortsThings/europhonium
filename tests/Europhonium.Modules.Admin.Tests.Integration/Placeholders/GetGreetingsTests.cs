@@ -15,7 +15,7 @@ public static class GetGreetingsTests
         {
         }
 
-        public static TheoryData<GetGreetings.Request, string[]> TestData =>
+        public static TheoryData<GetGreetings.Request, string> TestData =>
             new()
             {
                 {
@@ -24,7 +24,7 @@ public static class GetGreetingsTests
                         Quantity = 2,
                         Language = Language.English
                     },
-                    ["Hi!", "Hi!"]
+                    "Hi!"
                 },
                 {
                     new GetGreetings.Request
@@ -32,7 +32,7 @@ public static class GetGreetingsTests
                         Quantity = 3,
                         Language = Language.French
                     },
-                    ["Bonjour!", "Bonjour!", "Bonjour!"]
+                    "Bonjour!"
                 },
                 {
                     new GetGreetings.Request
@@ -40,20 +40,23 @@ public static class GetGreetingsTests
                         Quantity = 5,
                         Language = Language.Dutch
                     },
-                    ["Hoi!", "Hoi!", "Hoi!", "Hoi!", "Hoi!"]
+                    "Hoi!"
                 }
             };
 
         [Theory]
         [MemberData(nameof(TestData), MemberType = typeof(ExecuteAsyncMethod))]
-        public async Task ExecuteAsync_ValidRequest_ReturnsRequestedGreetings(GetGreetings.Request r, string[] expected)
+        public async Task ExecuteAsync_ValidRequest_ReturnsRequestedGreetings(GetGreetings.Request request,
+            string expectedGreeting)
         {
             // Act
-            Ok<GetGreetings.Response> result = await GetGreetings.ExecuteAsync(r, Sender);
+            Ok<GetGreetings.Response> result = await GetGreetings.ExecuteAsync(request, Sender);
 
             // Assert
             result.Value.Should().BeOfType<GetGreetings.Response>()
-                .Which.Greetings.Should().Equal(expected);
+                .Which.Greetings.Should().HaveCount(request.Quantity)
+                .And.AllSatisfy(resource => resource.Greeting.Should().Be(expectedGreeting))
+                .And.AllSatisfy(resource => resource.Language.Should().Be(request.Language));
         }
     }
 }

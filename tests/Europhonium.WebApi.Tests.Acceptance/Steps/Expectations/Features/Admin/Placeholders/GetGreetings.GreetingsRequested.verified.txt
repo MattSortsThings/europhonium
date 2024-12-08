@@ -1,8 +1,16 @@
 ﻿{
   greetings: [
-    Hoi!,
-    Hoi!,
-    Hoi!
-  ],
-  language: Dutch
+    {
+      greeting: Hoi!,
+      language: Dutch
+    },
+    {
+      greeting: Hoi!,
+      language: Dutch
+    },
+    {
+      greeting: Hoi!,
+      language: Dutch
+    }
+  ]
 }

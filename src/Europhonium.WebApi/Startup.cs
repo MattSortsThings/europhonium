@@ -1,6 +1,7 @@
 using Europhonium.Modules.Admin;
 using Europhonium.Modules.Public;
 using Europhonium.Shared.Infrastructure;
+using Europhonium.WebApi.ErrorHandling;
 using Europhonium.WebApi.OpenApi;
 using Europhonium.WebApi.Versioning;
 
@@ -22,9 +23,10 @@ internal static class Startup
                 configuration.AddAdminModuleMediatRServices()
                     .AddPublicModuleMediatRServices())
             .AddSharedInfrastructureServices()
-            .AddVersioning()
+            .AddErrorHandling()
             .AddEndpointsApiExplorer()
-            .AddOpenApi();
+            .AddOpenApi()
+            .AddVersioning();
 
         return builder;
     }
@@ -40,9 +42,11 @@ internal static class Startup
 
         app.UseStatusCodePages();
 
-        app.UseVersionedEndpoints();
+        app.UseExceptionHandler();
 
         app.UseVersionedSwaggerUI();
+
+        app.UseVersionedEndpoints();
 
         return app;
     }

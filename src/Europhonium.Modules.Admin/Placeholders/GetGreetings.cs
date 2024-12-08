@@ -11,10 +11,10 @@ public static class GetGreetings
         ISender sender,
         CancellationToken cancellationToken = default)
     {
-        Query query = new(request.Quantity, request.Language.ToString());
-        string[] greetings = await sender.Send(query, cancellationToken);
+        Query query = new(request.Quantity, request.Language);
+        GreetingResource[]? greetings = await sender.Send(query, cancellationToken);
 
-        return TypedResults.Ok(new Response(greetings, request.Language));
+        return TypedResults.Ok(new Response(greetings));
     }
 
     public sealed record Request
@@ -26,22 +26,25 @@ public static class GetGreetings
         public Language Language { get; init; }
     }
 
-    public sealed record Response(string[] Greetings, Language Language);
+    public sealed record Response(GreetingResource[] Greetings);
 
-    private sealed record Query(int Quantity, string Language) : IRequest<string[]>;
+    private sealed record Query(int Quantity, Language Language) : IRequest<GreetingResource[]>;
 
-    private sealed class Handler : IRequestHandler<Query, string[]>
+    private sealed class Handler : IRequestHandler<Query, GreetingResource[]>
     {
-        public Task<string[]> Handle(Query request, CancellationToken cancellationToken)
+        public Task<GreetingResource[]> Handle(Query request, CancellationToken cancellationToken)
         {
             var greeting = request.Language switch
             {
-                "French" => "Bonjour!",
-                "Dutch" => "Hoi!",
+                Language.French => "Bonjour!",
+                Language.Dutch => "Hoi!",
                 _ => "Hi!"
             };
 
-            return Task.FromResult(Enumerable.Repeat(greeting, request.Quantity).ToArray());
+            GreetingResource[] resources = Enumerable.Repeat(new GreetingResource(greeting, request.Language), request.Quantity)
+                .ToArray();
+
+            return Task.FromResult(resources);
         }
     }
 }

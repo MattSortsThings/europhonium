@@ -1,6 +1,7 @@
 ﻿{
-  dividend: 10,
-  modulus: 3,
-  remainder: 1,
-  requestId: Guid_1
+  modulo: {
+    dividend: 10,
+    modulus: 3,
+    remainder: 1
+  }
 }
