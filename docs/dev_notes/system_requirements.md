@@ -25,7 +25,7 @@ This document details the system requirements for the *Europhonium* project.
       - [A/3/3 - Delete Broadcast](#a33---delete-broadcast)
       - [A/3/4 - Award Points](#a34---award-points)
     - [A/4 - Security](#a4---security)
-      - [A/4/1 - Admin API key security](#a41---admin-api-key-security)
+      - [A/4/1 - Admin API key security (completed 08/12/2024)](#a41---admin-api-key-security-completed-08122024)
   - [P - *Public Module* requirements](#p---public-module-requirements)
     - [P/1 - Queryables](#p1---queryables)
       - [P/1/1 - Get Queryable Broadcasts](#p11---get-queryable-broadcasts)
@@ -806,7 +806,7 @@ PATCH {{host}}/api/admin/broadcasts/00000000-0000-0000-0000-000000000000/awards
 
 ### A/4 - Security
 
-#### A/4/1 - Admin API key security
+#### A/4/1 - Admin API key security (completed 08/12/2024)
 
 The system will use API key authentication with a role-based authorization policy. Any HTTP request to an *Admin Module* endpoint must include the secret *Admin API Key* as an `"X-Api-Key"` request header.
 

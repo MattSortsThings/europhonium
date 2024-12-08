@@ -1,3 +1,5 @@
+using Europhonium.Shared.Infrastructure.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Europhonium.Modules.Admin;
@@ -19,5 +21,18 @@ public static class DependencyInjection
         config.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
 
         return config;
+    }
+
+    /// <summary>
+    ///     Registers the Admin Module's security policy for the web application.
+    /// </summary>
+    /// <param name="builder">Configures authorization for the web application.</param>
+    /// <returns>The same <see cref="AuthorizationBuilder" /> instance, so that method invocations can be chained.</returns>
+    public static AuthorizationBuilder AddAdminModuleSecurityPolicy(this AuthorizationBuilder builder)
+    {
+        builder.AddPolicy(SecurityConstants.Policies.AdminOnly,
+            policyBuilder => policyBuilder.RequireRole(SecurityConstants.Roles.Admin));
+
+        return builder;
     }
 }

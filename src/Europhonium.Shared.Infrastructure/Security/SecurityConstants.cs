@@ -4,6 +4,7 @@ public static class SecurityConstants
 {
     public static class Policies
     {
+        public const string AdminOnly = "AdminOnly";
         public const string AdminOrUser = "AdminOrUser";
     }
 

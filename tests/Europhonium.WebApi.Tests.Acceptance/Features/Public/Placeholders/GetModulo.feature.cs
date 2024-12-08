@@ -119,9 +119,6 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
 #line 6
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 7
-        await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
             }
             await this.ScenarioCleanupAsync();
         }

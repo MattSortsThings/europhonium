@@ -111,16 +111,13 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Placeholders
             {
                 await this.ScenarioStartAsync();
 #line 4
-        await testRunner.GivenAsync("I am a client using no API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+        await testRunner.GivenAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 5
         await testRunner.WhenAsync("I request 3 greetings in Dutch", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 6
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 7
-        await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

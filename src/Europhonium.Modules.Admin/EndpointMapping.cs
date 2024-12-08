@@ -1,4 +1,5 @@
 using Europhonium.Modules.Admin.Placeholders;
+using Europhonium.Shared.Infrastructure.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -18,6 +19,7 @@ public static class EndpointMapping
     public static IEndpointRouteBuilder MapAdminEndpoints(this IEndpointRouteBuilder routeBuilder)
     {
         routeBuilder.MapGroup("admin")
+            .RequireAuthorization(SecurityConstants.Policies.AdminOnly)
             .WithTags("admin")
             .MapPlaceholdersEndpoints();
 

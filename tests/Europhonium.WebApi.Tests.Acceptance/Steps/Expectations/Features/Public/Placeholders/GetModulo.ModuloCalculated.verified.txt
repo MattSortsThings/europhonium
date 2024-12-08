@@ -1,7 +1,0 @@
-﻿{
-  modulo: {
-    dividend: 10,
-    modulus: 3,
-    remainder: 1
-  }
-}
