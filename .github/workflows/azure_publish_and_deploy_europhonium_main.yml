@@ -1,0 +1,30 @@
+# Publish and Deploy Europhonium.WebApi to Azure App Service
+
+name: Publish and Deploy Europhonium API
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  AZURE_WEBAPP_NAME: europhonium
+  AZURE_WEBAPP_PACKAGE_PATH: src\Europhonium.WebApi\published
+  CONFIGURATION: Release
+  DOTNET_VERSION: 8.0.x
+  PROJECT_FILE_PATH: src\Europhonium.WebApi\Europhonium.WebApi.csproj
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Restore
+        run: dotnet restore "${{ env.PROJECT_FILE_PATH }}"
+      - name: Build
+        run: dotnet build "${{ env.PROJECT_FILE_PATH }}" --configuration ${{ env.CONFIGURATION }} --no-restore
