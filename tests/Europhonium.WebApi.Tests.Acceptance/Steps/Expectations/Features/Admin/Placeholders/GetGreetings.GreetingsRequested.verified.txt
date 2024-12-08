@@ -1,0 +1,8 @@
+﻿{
+  greetings: [
+    Hoi!,
+    Hoi!,
+    Hoi!
+  ],
+  language: Dutch
+}

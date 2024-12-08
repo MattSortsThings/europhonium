@@ -1,0 +1,7 @@
+Feature: Get Modulo
+
+    Scenario: Modulo calculated
+        Given I am a client using no API key
+        When I request 10 mod 3
+        Then the response status code should be "Ok"
+        And the response content should match expectations
