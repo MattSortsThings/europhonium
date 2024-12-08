@@ -1,5 +1,6 @@
 using Europhonium.Modules.Public.Placeholders;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace Europhonium.Modules.Public;
@@ -17,6 +18,7 @@ public static class EndpointMapping
     public static IEndpointRouteBuilder MapPublicEndpoints(this IEndpointRouteBuilder routeBuilder)
     {
         routeBuilder.MapGroup("public")
+            .WithTags("public")
             .MapPlaceholdersEndpoints();
 
         return routeBuilder;

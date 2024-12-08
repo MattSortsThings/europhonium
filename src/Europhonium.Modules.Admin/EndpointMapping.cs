@@ -1,5 +1,6 @@
 using Europhonium.Modules.Admin.Placeholders;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace Europhonium.Modules.Admin;
@@ -17,6 +18,7 @@ public static class EndpointMapping
     public static IEndpointRouteBuilder MapAdminEndpoints(this IEndpointRouteBuilder routeBuilder)
     {
         routeBuilder.MapGroup("admin")
+            .WithTags("admin")
             .MapPlaceholdersEndpoints();
 
         return routeBuilder;
