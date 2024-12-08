@@ -13,6 +13,15 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     [Given("I am a client using no API key")]
     public void GivenIAmAClientUsingNoApiKey() => HttpClient = httpClientProvider.GetClientUsingNoApiKey();
 
+    [Given("I am a client using the Public API key")]
+    public void GivenIAmAClientUsingThePublicApiKey() => HttpClient = httpClientProvider.GetClientUsingPublicApiKey();
+
+    [Given("I am a client using the Admin API key")]
+    public void GivenIAmAClientUsingTheAdminApiKey() => HttpClient = httpClientProvider.GetClientUsingAdminApiKey();
+
+    [Given("I am a client using an unrecognized API key")]
+    public void GivenIAmAClientUsingAnUnrecognizedApiKey() => HttpClient = httpClientProvider.GetClientUsingUnrecognizedApiKey();
+
     [When("I request (.*) greetings in (.*)")]
     public async Task WhenIRequestGreetingsIn(int quantity, Language language)
     {

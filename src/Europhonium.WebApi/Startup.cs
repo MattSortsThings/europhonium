@@ -3,6 +3,7 @@ using Europhonium.Modules.Public;
 using Europhonium.Shared.Infrastructure;
 using Europhonium.WebApi.ErrorHandling;
 using Europhonium.WebApi.OpenApi;
+using Europhonium.WebApi.Security;
 using Europhonium.WebApi.Versioning;
 
 namespace Europhonium.WebApi;
@@ -25,8 +26,9 @@ internal static class Startup
             .AddSharedInfrastructureServices()
             .AddErrorHandling()
             .AddEndpointsApiExplorer()
-            .AddOpenApi()
-            .AddVersioning();
+            .AddVersioning()
+            .AddApiKeySecurity(builder.Configuration)
+            .AddOpenApi();
 
         return builder;
     }
@@ -43,6 +45,10 @@ internal static class Startup
         app.UseStatusCodePages();
 
         app.UseExceptionHandler();
+
+        app.UseAuthentication();
+
+        app.UseAuthorization();
 
         app.UseVersionedSwaggerUI();
 

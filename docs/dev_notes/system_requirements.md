@@ -53,7 +53,7 @@ This document details the system requirements for the *Europhonium* project.
       - [P/5/4 - Get Voter Overall Points Share Rankings](#p54---get-voter-overall-points-share-rankings)
       - [P/5/4 - Get Voter Overall Points Similarity Rankings](#p54---get-voter-overall-points-similarity-rankings)
     - [P/6 - Security](#p6---security)
-      - [P/6/1 - Public API key security](#p61---public-api-key-security)
+      - [P/6/1 - Public API key security (completed 08/12/2024)](#p61---public-api-key-security-completed-08122024)
   - [Non-functional requirements](#non-functional-requirements)
 
 ## Summary
@@ -1951,7 +1951,7 @@ GET {{host}}/api/public/rankings/voters-overall/points-share?competingCountryCod
 
 ### P/6 - Security
 
-#### P/6/1 - Public API key security
+#### P/6/1 - Public API key security (completed 08/12/2024)
 
 The system will use API key authentication with a role-based authorization policy. Any HTTP request to a *Public Module* endpoint must include either the *Public API Key* or the secret *Admin API Key* as an `"X-Api-Key"` request header.
 

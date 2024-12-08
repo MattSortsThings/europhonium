@@ -111,7 +111,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
             {
                 await this.ScenarioStartAsync();
 #line 4
-        await testRunner.GivenAsync("I am a client using no API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+        await testRunner.GivenAsync("I am a client using the Public API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 5
         await testRunner.WhenAsync("I request 10 mod 3", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
