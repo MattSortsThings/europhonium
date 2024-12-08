@@ -1,6 +1,7 @@
 using Europhonium.Modules.Admin;
 using Europhonium.Modules.Public;
 using Europhonium.Shared.Infrastructure;
+using Europhonium.WebApi.Versioning;
 
 namespace Europhonium.WebApi;
 
@@ -19,7 +20,8 @@ internal static class Startup
         builder.Services.AddMediatR(configuration =>
                 configuration.AddAdminModuleMediatRServices()
                     .AddPublicModuleMediatRServices())
-            .AddSharedInfrastructureServices();
+            .AddSharedInfrastructureServices()
+            .AddVersioning();
 
         return builder;
     }
@@ -33,13 +35,17 @@ internal static class Startup
     {
         app.UseHttpsRedirection();
 
-        app.UseEndpoints();
+        app.UseVersionedEndpoints();
 
         return app;
     }
 
-    private static void UseEndpoints(this WebApplication app)
+    private static void UseVersionedEndpoints(this WebApplication app)
     {
-        app.MapGroup("api").MapAdminEndpoints().MapPublicEndpoints();
+        RouteGroupBuilder versionedEndpointsGroup =
+            app.MapGroup("api/v{apiVersion:apiVersion}")
+                .WithApiVersionSet(app.CreateVersionSets());
+
+        versionedEndpointsGroup.MapPublicEndpoints().MapAdminEndpoints();
     }
 }

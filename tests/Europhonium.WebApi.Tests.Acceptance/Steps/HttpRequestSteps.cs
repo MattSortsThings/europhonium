@@ -16,7 +16,7 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     [When("I request (.*) greetings in (.*)")]
     public async Task WhenIRequestGreetingsIn(int quantity, Language language)
     {
-        var route = $"api/admin/placeholders/greetings?quantity={quantity}&language={language}";
+        var route = $"api/v1/admin/placeholders/greetings?quantity={quantity}&language={language}";
 
         (HttpStatusCode statusCode, var content) = await HttpClient.GETAsync(route);
 
@@ -27,7 +27,7 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     [When("I request (.*) mod (.*)")]
     public async Task WhenIRequestMod(int dividend, int modulus)
     {
-        var route = $"api/public/placeholders/modulo/{dividend}/{modulus}";
+        var route = $"api/v1/public/placeholders/modulo/{dividend}/{modulus}";
 
         (HttpStatusCode statusCode, var content) = await HttpClient.GETAsync(route);
 
