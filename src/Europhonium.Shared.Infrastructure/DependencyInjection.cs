@@ -1,3 +1,5 @@
+using Europhonium.Shared.Infrastructure.DataAccess.EFCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Europhonium.Shared.Infrastructure;
@@ -11,6 +13,13 @@ public static class DependencyInjection
     ///     Registers all the shared infrastructure services for the web application.
     /// </summary>
     /// <param name="services">Contains service descriptors for the web application.</param>
+    /// <param name="configuration">Contains service configuration properties for the web application.</param>
     /// <returns>The same <see cref="IServiceCollection" /> instance, so that method invocations can be chained.</returns>
-    public static IServiceCollection AddSharedInfrastructureServices(this IServiceCollection services) => services;
+    public static IServiceCollection AddSharedInfrastructureServices(this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        services.AddEFCoreServices(configuration);
+
+        return services;
+    }
 }

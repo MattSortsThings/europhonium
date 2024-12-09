@@ -117,9 +117,9 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
         await testRunner.GivenAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 10
-        await testRunner.WhenAsync("I request 5 greetings in Dutch", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+        await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 17
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -136,7 +136,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Public API key authenticated but not authorized", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 20
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -146,13 +146,13 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
             else
             {
                 await this.ScenarioStartAsync();
-#line 15
+#line 21
         await testRunner.GivenAsync("I am a client using the Public API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 16
-        await testRunner.WhenAsync("I request 5 greetings in Dutch", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 22
+        await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 29
         await testRunner.ThenAsync("the response status code should be \"Forbidden\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -169,7 +169,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Unrecognized API key not authenticated", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
+#line 32
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -179,13 +179,13 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
             else
             {
                 await this.ScenarioStartAsync();
-#line 21
+#line 33
         await testRunner.GivenAsync("I am a client using an unrecognized API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 22
-        await testRunner.WhenAsync("I request 5 greetings in Dutch", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 34
+        await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 41
         await testRunner.ThenAsync("the response status code should be \"Unauthorized\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -202,7 +202,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Missing API key not authenticated", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+#line 44
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -212,13 +212,13 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Security
             else
             {
                 await this.ScenarioStartAsync();
-#line 27
+#line 45
         await testRunner.GivenAsync("I am a client using no API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 28
-        await testRunner.WhenAsync("I request 5 greetings in Dutch", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 46
+        await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 29
+#line 53
         await testRunner.ThenAsync("the response status code should be \"Unauthorized\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

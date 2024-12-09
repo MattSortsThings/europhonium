@@ -1,5 +1,5 @@
 using System.Reflection;
-using Europhonium.Modules.Admin.Placeholders;
+using Europhonium.Modules.Admin.Countries;
 using Europhonium.Modules.Public.Placeholders;
 using Europhonium.Shared.Domain.Abstractions;
 using Europhonium.Shared.Infrastructure.DataAccess;
@@ -9,9 +9,9 @@ namespace Europhonium.WebApi.Tests.Architecture;
 
 public static partial class ArchitectureTests
 {
-    private static readonly Assembly AdminModuleAssembly = typeof(GetGreetings).Assembly;
+    private static readonly Assembly AdminModuleAssembly = typeof(CreateCountry).Assembly;
     private static readonly Assembly PublicModuleAssembly = typeof(GetModulo).Assembly;
-    private static readonly Assembly SharedDomainAssembly = typeof(AggregateRoot).Assembly;
+    private static readonly Assembly SharedDomainAssembly = typeof(ValueObject).Assembly;
     private static readonly Assembly SharedInfrastructureAssembly = typeof(DataAccessConstants).Assembly;
     private static readonly Assembly WebApiAssembly = typeof(IWebApiAssemblyLocator).Assembly;
 
@@ -33,6 +33,8 @@ public static partial class ArchitectureTests
                 .AreClasses()
                 .And()
                 .AreNotAbstract()
+                .And()
+                .DoNotResideInNamespaceContaining("Migrations")
                 .And()
                 .DoNotHaveName("Program")
                 .Should()

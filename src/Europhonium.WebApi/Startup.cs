@@ -23,7 +23,7 @@ internal static class Startup
         builder.Services.AddMediatR(configuration =>
                 configuration.AddAdminModuleMediatRServices()
                     .AddPublicModuleMediatRServices())
-            .AddSharedInfrastructureServices()
+            .AddSharedInfrastructureServices(builder.Configuration)
             .AddErrorHandling()
             .AddEndpointsApiExplorer()
             .AddVersioning()

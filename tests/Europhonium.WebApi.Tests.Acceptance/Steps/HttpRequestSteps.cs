@@ -1,5 +1,4 @@
 using System.Net;
-using Europhonium.Modules.Admin.Placeholders;
 using Europhonium.WebApi.Tests.Acceptance.Utils;
 using Reqnroll;
 
@@ -22,17 +21,6 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
     [Given("I am a client using an unrecognized API key")]
     public void GivenIAmAClientUsingAnUnrecognizedApiKey() => HttpClient = httpClientProvider.GetClientUsingUnrecognizedApiKey();
 
-    [When("I request (.*) greetings in (.*)")]
-    public async Task WhenIRequestGreetingsIn(int quantity, Language language)
-    {
-        var route = $"api/v1/admin/placeholders/greetings?quantity={quantity}&language={language}";
-
-        (HttpStatusCode statusCode, var content) = await HttpClient.GETAsync(route);
-
-        scenarioContext.Add(ScenarioKeys.HttpResponse.StatusCode, statusCode);
-        scenarioContext.Add(ScenarioKeys.HttpResponse.Content, content);
-    }
-
     [When("I request (.*) mod (.*)")]
     public async Task WhenIRequestMod(int dividend, int modulus)
     {
@@ -42,5 +30,17 @@ public sealed class HttpRequestSteps(ScenarioContext scenarioContext, IHttpClien
 
         scenarioContext.Add(ScenarioKeys.HttpResponse.StatusCode, statusCode);
         scenarioContext.Add(ScenarioKeys.HttpResponse.Content, content);
+    }
+
+    [When(@"I create the following country")]
+    public async Task WhenICreateTheFollowingCountry(string json)
+    {
+        const string route = "api/v1/admin/countries";
+
+        (HttpStatusCode statusCode, var content, var location) = await HttpClient.POSTAsync(route, json);
+
+        scenarioContext.Add(ScenarioKeys.HttpResponse.StatusCode, statusCode);
+        scenarioContext.Add(ScenarioKeys.HttpResponse.Content, content);
+        scenarioContext.Add(ScenarioKeys.HttpResponse.Location, location);
     }
 }

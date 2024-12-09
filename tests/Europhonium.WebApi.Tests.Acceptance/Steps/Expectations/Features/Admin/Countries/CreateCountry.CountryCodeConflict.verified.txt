@@ -1,0 +1,9 @@
+﻿{
+  type: https://tools.ietf.org/html/rfc9110#section-15.5.10,
+  title: Countries.CountryCodeCode,
+  status: 409,
+  detail: A country with the specified country code already exists.,
+  countryCode: GB,
+  traceId: {Scrubbed},
+  instance: POST /api/v1/admin/countries
+}

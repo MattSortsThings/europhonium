@@ -1,0 +1,9 @@
+﻿{
+  type: https://tools.ietf.org/html/rfc9110#section-15.5.1,
+  title: Countries.InvalidCountryCode,
+  status: 400,
+  detail: Country code must be a string of 2 upper-case letters.,
+  countryCode: INVALID_COUNTRY_CODE,
+  traceId: {Scrubbed},
+  instance: POST /api/v1/admin/countries
+}

@@ -1,5 +1,10 @@
+using Europhonium.Shared.Infrastructure.DataAccess;
+using Europhonium.Shared.Infrastructure.DataAccess.EFCore;
 using Europhonium.WebApi;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Testcontainers.MsSql;
 
 namespace Europhonium.Modules.Admin.Tests.Integration.Utils;
@@ -8,7 +13,14 @@ public sealed class CleanWebAppFixture : WebApplicationFactory<IWebApiAssemblyLo
 {
     private readonly MsSqlContainer _dbContainer = new MsSqlBuilder().Build();
 
-    public Task InitializeAsync() => _dbContainer.StartAsync();
+    public async Task InitializeAsync()
+    {
+        await _dbContainer.StartAsync();
+
+        using IServiceScope scope = Services.CreateScope();
+        await using var dbContext = scope.ServiceProvider.GetRequiredService<WebAppDbContext>();
+        await dbContext.Database.MigrateAsync();
+    }
 
     public new async Task DisposeAsync()
     {
@@ -18,6 +30,13 @@ public sealed class CleanWebAppFixture : WebApplicationFactory<IWebApiAssemblyLo
 
     internal void Reset()
     {
-        // Reset database here.
+        using IServiceScope scope = Services.CreateScope();
+        using var dbContext = scope.ServiceProvider.GetRequiredService<WebAppDbContext>();
+        dbContext.Countries.ExecuteDelete();
+    }
+
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    {
+        builder.UseSetting(DataAccessConstants.DbConnectionStringConfigPath, _dbContainer.GetConnectionString());
     }
 }

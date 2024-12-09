@@ -6,5 +6,6 @@ public static class ScenarioKeys
     {
         public const string StatusCode = "HttpResponse.StatusCode";
         public const string Content = "HttpResponse.Content";
+        public const string Location = "HttpResponse.Location";
     }
 }

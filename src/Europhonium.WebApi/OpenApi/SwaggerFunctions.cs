@@ -9,6 +9,6 @@ internal static class SwaggerFunctions
             return type.FullName?.Split('.').Last().Replace("+", string.Empty) ?? type.Name;
         }
 
-        return type.Name;
+        return type.Name.EndsWith("Resource") ? type.Name[..^8] : type.Name;
     };
 }

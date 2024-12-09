@@ -15,13 +15,13 @@ public static class WebAppHooks
 
         container.RegisterInstanceAs(cleanWebAppFixture);
         container.RegisterInstanceAs(cleanWebAppFixture, typeof(IHttpClientProvider));
+        container.RegisterInstanceAs(cleanWebAppFixture, typeof(IWebApiSetupDriver));
     }
 
     [AfterScenario]
     public static void ResetCleanWebAppFixture(IObjectContainer container)
     {
         var cleanWebAppFixture = container.Resolve<CleanWebAppFixture>();
-
         cleanWebAppFixture.Reset();
     }
 

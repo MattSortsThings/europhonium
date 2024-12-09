@@ -8,5 +8,6 @@ public static class VerifyConfig
     public static void Initialize()
     {
         VerifierSettings.DontIgnoreEmptyCollections();
+        VerifierSettings.ScrubMember("traceId");
     }
 }

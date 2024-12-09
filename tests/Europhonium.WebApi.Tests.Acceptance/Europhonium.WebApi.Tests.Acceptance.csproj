@@ -45,4 +45,12 @@
     <ProjectReference Include="..\..\src\Europhonium.WebApi\Europhonium.WebApi.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Features\Admin\Placeholders\GetGreetings.feature"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckBuild Remove="Features\Admin\Placeholders\GetGreetings.feature.cs"/>
+  </ItemGroup>
+
 </Project>
