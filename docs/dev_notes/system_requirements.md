@@ -843,10 +843,7 @@ GET {{host}}/api/public/queryables/broadcasts
       "competingCountryCodes": 15,
       "votingCountries": 18
     }
-  ],
-  "meta": {
-    "totalItems": 10
-  }
+  ]
 }
 ```
 
@@ -876,10 +873,7 @@ GET {{host}}/api/public/queryables/contests
       "hostCityName": "Turin",
       "participatingCountries": 35
     }
-  ],
-  "meta": {
-    "totalItems": 10
-  }
+  ]
 }
 ```
 
@@ -911,10 +905,7 @@ GET {{host}}/api/public/queryables/countries
       "competingBroadcasts": 5,
       "votingBroadcasts": 9
     }
-  ],
-  "meta": {
-    "totalItems": 10
-  }
+  ]
 }
 ```
 
