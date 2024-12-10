@@ -51,9 +51,9 @@ This document details the system requirements for the *Europhonium* project.
       - [P/5/2 - Get Voter Overall Points Consensus Rankings](#p52---get-voter-overall-points-consensus-rankings)
       - [P/5/3 - Get Voter Overall Points In Range Rankings](#p53---get-voter-overall-points-in-range-rankings)
       - [P/5/4 - Get Voter Overall Points Share Rankings](#p54---get-voter-overall-points-share-rankings)
-      - [P/5/4 - Get Voter Overall Points Similarity Rankings](#p54---get-voter-overall-points-similarity-rankings)
+      - [P/5/5 - Get Voter Overall Points Similarity Rankings](#p55---get-voter-overall-points-similarity-rankings)
     - [P/6 - Security](#p6---security)
-      - [P/6/1 - Public API key security (completed 08/12/2024)](#p61---public-api-key-security-completed-08122024)
+      - [P/6/1 - Public API key security](#p61---public-api-key-security)
   - [Non-functional requirements](#non-functional-requirements)
 
 ## Summary
@@ -1880,7 +1880,7 @@ GET {{host}}/api/public/rankings/voters-overall/points-share?competingCountryCod
 }
 ```
 
-#### P/5/4 - Get Voter Overall Points Similarity Rankings
+#### P/5/5 - Get Voter Overall Points Similarity Rankings
 
 **User story**
 
@@ -1942,7 +1942,7 @@ GET {{host}}/api/public/rankings/voters-overall/points-share?competingCountryCod
 
 ### P/6 - Security
 
-#### P/6/1 - Public API key security (completed 08/12/2024)
+#### P/6/1 - Public API key security
 
 The system will use API key authentication with a role-based authorization policy. Any HTTP request to a *Public Module* endpoint must include either the *Public API Key* or the secret *Admin API Key* as an `"X-Api-Key"` request header.
 

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
+namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
 {
     using Reqnroll;
     using System;
@@ -19,21 +19,22 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class GetModuloFeature : object, Xunit.IClassFixture<GetModuloFeature.FixtureData>, Xunit.IAsyncLifetime
+    public partial class GetQueryableCountriesFeature : object, Xunit.IClassFixture<GetQueryableCountriesFeature.FixtureData>, Xunit.IAsyncLifetime
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Public/Placeholders", "Get Modulo", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Public/Queryables", "Get Queryable Countries", ("P/1/3\r\n=====\r\nAs a Euro-Fan,\r\nI want to retrieve a list of all the countries in t" +
+                "he system,\r\nordered by country code,\r\nso that I can plan my queries."), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "GetModulo.feature"
+#line 1 "GetQueryableCountries.feature"
 #line hidden
         
-        public GetModuloFeature(GetModuloFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public GetQueryableCountriesFeature(GetQueryableCountriesFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
         }
@@ -92,15 +93,17 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
             await this.TestTearDownAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Modulo calculated")]
-        [Xunit.TraitAttribute("FeatureTitle", "Get Modulo")]
-        [Xunit.TraitAttribute("Description", "Modulo calculated")]
-        public async System.Threading.Tasks.Task ModuloCalculated()
+        [Xunit.SkippableFactAttribute(DisplayName="Countries requested")]
+        [Xunit.TraitAttribute("FeatureTitle", "Get Queryable Countries")]
+        [Xunit.TraitAttribute("Description", "Countries requested")]
+        [Xunit.TraitAttribute("Category", "HappyPath")]
+        public async System.Threading.Tasks.Task CountriesRequested()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "HappyPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Modulo calculated", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Countries requested", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 11
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -110,14 +113,50 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
-        await testRunner.GivenAsync("I am a client using the Public API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
+                            "CountryCode",
+                            "Name"});
+                table2.AddRow(new string[] {
+                            "XX",
+                            "Rest of World"});
+                table2.AddRow(new string[] {
+                            "AT",
+                            "Austria"});
+                table2.AddRow(new string[] {
+                            "BE",
+                            "Belgium"});
+                table2.AddRow(new string[] {
+                            "CZ",
+                            "Czechia"});
+                table2.AddRow(new string[] {
+                            "DE",
+                            "Germany"});
+                table2.AddRow(new string[] {
+                            "EE",
+                            "Estonia"});
+                table2.AddRow(new string[] {
+                            "FI",
+                            "Finland"});
+                table2.AddRow(new string[] {
+                            "GB",
+                            "United Kingdom"});
+                table2.AddRow(new string[] {
+                            "HR",
+                            "Croatia"});
+#line 12
+        await testRunner.GivenAsync("the following countries exist", ((string)(null)), table2, "Given ");
 #line hidden
-#line 5
-        await testRunner.WhenAsync("I request 10 mod 3", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 23
+        await testRunner.AndAsync("I am a client using the Public API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 6
+#line 24
+        await testRunner.WhenAsync("I request all the queryable countries", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 25
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 26
+        await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -130,12 +169,12 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Placeholders
             
             async System.Threading.Tasks.Task Xunit.IAsyncLifetime.InitializeAsync()
             {
-                await GetModuloFeature.FeatureSetupAsync();
+                await GetQueryableCountriesFeature.FeatureSetupAsync();
             }
             
             async System.Threading.Tasks.Task Xunit.IAsyncLifetime.DisposeAsync()
             {
-                await GetModuloFeature.FeatureTearDownAsync();
+                await GetQueryableCountriesFeature.FeatureTearDownAsync();
             }
         }
     }

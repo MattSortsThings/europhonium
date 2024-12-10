@@ -26,8 +26,8 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Admin/Countries", "Create Country", ("A/1/1\r\nAs the Admin,\r\nI want to create a new country in the system,\r\nso that I ca" +
-                "n reference it in contests and broadcasts that I will go on to create."), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Admin/Countries", "Create Country", ("A/1/1\r\n=====\r\nAs the Admin,\r\nI want to create a new country in the system,\r\nso th" +
+                "at I can reference it in contests and broadcasts that I will go on to create."), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -103,7 +103,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
                     "HappyPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Country created", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 10
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -113,16 +113,16 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
             else
             {
                 await this.ScenarioStartAsync();
-#line 10
+#line 11
         await testRunner.GivenAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 11
+#line 12
         await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 19
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 19
+#line 20
         await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -139,7 +139,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Invalid country code", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+#line 23
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -149,16 +149,16 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
             else
             {
                 await this.ScenarioStartAsync();
-#line 23
+#line 24
         await testRunner.GivenAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 24
+#line 25
         await testRunner.WhenAsync("I create the following country", "{\r\n  \"countryCode\": \"INVALID_COUNTRY_CODE\",\r\n  \"name\": \"United Kingdom\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 32
         await testRunner.ThenAsync("the response status code should be \"BadRequest\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 32
+#line 33
         await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -175,7 +175,7 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
                     "SadPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Country code conflict", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 35
+#line 36
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -191,19 +191,19 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
                 table1.AddRow(new string[] {
                             "GB",
                             "United Kingdom"});
-#line 36
+#line 37
         await testRunner.GivenAsync("the following countries exist", ((string)(null)), table1, "Given ");
 #line hidden
-#line 39
+#line 40
         await testRunner.AndAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 41
         await testRunner.WhenAsync("I create the following country", "{\r\n    \"countryCode\": \"GB\",\r\n    \"name\": \"Royaume-Uni\"\r\n}", ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 47
+#line 48
         await testRunner.ThenAsync("the response status code should be \"Conflict\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 48
+#line 49
         await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }

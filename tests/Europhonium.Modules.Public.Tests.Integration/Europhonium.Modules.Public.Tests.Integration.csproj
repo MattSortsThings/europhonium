@@ -41,4 +41,8 @@
     <ProjectReference Include="..\..\src\Europhonium.WebApi\Europhonium.WebApi.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\seed_db_with_integration_test_data.sql"/>
+  </ItemGroup>
+
 </Project>

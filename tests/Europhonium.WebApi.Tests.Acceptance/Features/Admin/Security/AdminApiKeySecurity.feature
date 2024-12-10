@@ -1,6 +1,8 @@
 Feature: Admin Api Key Security
 
-Any HTTP request to a Public Module endpoint must include
+A/4/1
+=====
+Any HTTP request to an Admin Module endpoint must include
 the secret Admin API key
 as an "X-Api-Key" request header.
 

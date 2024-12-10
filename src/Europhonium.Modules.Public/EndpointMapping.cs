@@ -1,4 +1,4 @@
-using Europhonium.Modules.Public.Placeholders;
+using Europhonium.Modules.Public.Queryables;
 using Europhonium.Shared.Infrastructure.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -21,7 +21,7 @@ public static class EndpointMapping
         routeBuilder.MapGroup("public")
             .RequireAuthorization(SecurityConstants.Policies.AdminOrUser)
             .WithTags("public")
-            .MapPlaceholdersEndpoints();
+            .MapQueryablesEndpoints();
 
         return routeBuilder;
     }

@@ -18,8 +18,8 @@ public static class CreateCountryTests
 
     [Expensive]
     [DatabaseTest]
-    [Feature("A/1/1")]
     [IntegrationTest]
+    [Feature("A/1/1")]
     public sealed class ExecuteAsyncMethod : CleanWebAppTestBase
     {
         public ExecuteAsyncMethod(CleanWebAppFixture webAppFixture) : base(webAppFixture)
@@ -27,6 +27,7 @@ public static class CreateCountryTests
         }
 
         [Theory]
+        [HappyPath]
         [InlineData("CH", "Switzerland")]
         [InlineData("GB", "United Kingdom")]
         [InlineData("BA", "Bosnia & Herzegovina")]
@@ -49,6 +50,7 @@ public static class CreateCountryTests
         }
 
         [Theory]
+        [SadPath]
         [InlineData("12345")]
         [InlineData("INVALID_COUNTRY_CODE")]
         public async Task ExecuteAsync_InvalidCountryCode_ReturnsBadRequestResultWithProblemDetails(string countryCode)
@@ -69,6 +71,7 @@ public static class CreateCountryTests
         }
 
         [Theory]
+        [SadPath]
         [InlineData("FR")]
         [InlineData("GB")]
         public async Task ExecuteAsync_CountryCodeConflict_ReturnsConflictResultWithProblemDetails(string countryCode)

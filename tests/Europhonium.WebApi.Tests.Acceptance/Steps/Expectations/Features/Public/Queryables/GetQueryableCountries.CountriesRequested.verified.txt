@@ -1,0 +1,67 @@
+﻿{
+  queryableCountries: [
+    {
+      countryCode: AT,
+      name: Austria,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: BE,
+      name: Belgium,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: CZ,
+      name: Czechia,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: DE,
+      name: Germany,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: EE,
+      name: Estonia,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: FI,
+      name: Finland,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: GB,
+      name: United Kingdom,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: HR,
+      name: Croatia,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    },
+    {
+      countryCode: XX,
+      name: Rest of World,
+      participatingContests: 0,
+      competingBroadcasts: 0,
+      votingBroadcasts: 0
+    }
+  ]
+}
