@@ -9,5 +9,6 @@ public static class VerifyConfig
     {
         VerifierSettings.DontIgnoreEmptyCollections();
         VerifierSettings.ScrubMember("traceId");
+        VerifierSettings.ScrubInlineGuids();
     }
 }

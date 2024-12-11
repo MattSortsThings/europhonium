@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
+namespace Europhonium.WebApi.Tests.Acceptance.Features.Admin.Countries
 {
     using Reqnroll;
     using System;
@@ -19,22 +19,23 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class GetQueryableCountriesFeature : object, Xunit.IClassFixture<GetQueryableCountriesFeature.FixtureData>, Xunit.IAsyncLifetime
+    public partial class GetCountryFeature : object, Xunit.IClassFixture<GetCountryFeature.FixtureData>, Xunit.IAsyncLifetime
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Public/Queryables", "Get Queryable Countries", ("P/1/3\r\n=====\r\nAs a Euro-Fan,\r\nI want to retrieve a list of all the countries in t" +
-                "he system,\r\nordered by country code,\r\nso that I can plan my queries."), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Admin/Countries", "Get Country", ("A/1/2\r\n=====\r\nAs the Admin,\r\nI want to retrieve a single country from the system," +
+                "\r\nidentified by supplying its ID,\r\nso that I can see the contests and broadcasts" +
+                " in which it is involved."), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "GetQueryableCountries.feature"
+#line 1 "GetCountry.feature"
 #line hidden
         
-        public GetQueryableCountriesFeature(GetQueryableCountriesFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public GetCountryFeature(GetCountryFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
         }
@@ -93,16 +94,16 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
             await this.TestTearDownAsync();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Countries requested")]
-        [Xunit.TraitAttribute("FeatureTitle", "Get Queryable Countries")]
-        [Xunit.TraitAttribute("Description", "Countries requested")]
+        [Xunit.SkippableFactAttribute(DisplayName="Country requested")]
+        [Xunit.TraitAttribute("FeatureTitle", "Get Country")]
+        [Xunit.TraitAttribute("Description", "Country requested")]
         [Xunit.TraitAttribute("Category", "HappyPath")]
-        public async System.Threading.Tasks.Task CountriesRequested()
+        public async System.Threading.Tasks.Task CountryRequested()
         {
             string[] tagsOfScenario = new string[] {
                     "HappyPath"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Countries requested", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Country requested", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -113,49 +114,61 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
                             "CountryCode",
                             "Name"});
-                table3.AddRow(new string[] {
-                            "XX",
-                            "Rest of World"});
-                table3.AddRow(new string[] {
-                            "AT",
-                            "Austria"});
-                table3.AddRow(new string[] {
-                            "BE",
-                            "Belgium"});
-                table3.AddRow(new string[] {
-                            "CZ",
-                            "Czechia"});
-                table3.AddRow(new string[] {
-                            "DE",
-                            "Germany"});
-                table3.AddRow(new string[] {
-                            "EE",
-                            "Estonia"});
-                table3.AddRow(new string[] {
-                            "FI",
-                            "Finland"});
-                table3.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "GB",
                             "United Kingdom"});
-                table3.AddRow(new string[] {
-                            "HR",
-                            "Croatia"});
 #line 12
-        await testRunner.GivenAsync("the following countries exist", ((string)(null)), table3, "Given ");
+        await testRunner.GivenAsync("the following countries exist", ((string)(null)), table2, "Given ");
 #line hidden
-#line 23
-        await testRunner.AndAsync("I am a client using the Public API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 15
+        await testRunner.AndAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 24
-        await testRunner.WhenAsync("I request all the queryable countries", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 16
+        await testRunner.WhenAsync("I request the country with the country code \"GB\" by its ID", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 25
+#line 17
         await testRunner.ThenAsync("the response status code should be \"Ok\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 26
+#line 18
+        await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Country not found")]
+        [Xunit.TraitAttribute("FeatureTitle", "Get Country")]
+        [Xunit.TraitAttribute("Description", "Country not found")]
+        [Xunit.TraitAttribute("Category", "SadPath")]
+        public async System.Threading.Tasks.Task CountryNotFound()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "SadPath"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Country not found", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 21
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 22
+        await testRunner.GivenAsync("I am a client using the Admin API key", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 23
+        await testRunner.WhenAsync("I request a country that does not exist", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 24
+        await testRunner.ThenAsync("the response status code should be \"NotFound\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 25
         await testRunner.AndAsync("the response content should match expectations", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -169,12 +182,12 @@ namespace Europhonium.WebApi.Tests.Acceptance.Features.Public.Queryables
             
             async System.Threading.Tasks.Task Xunit.IAsyncLifetime.InitializeAsync()
             {
-                await GetQueryableCountriesFeature.FeatureSetupAsync();
+                await GetCountryFeature.FeatureSetupAsync();
             }
             
             async System.Threading.Tasks.Task Xunit.IAsyncLifetime.DisposeAsync()
             {
-                await GetQueryableCountriesFeature.FeatureTearDownAsync();
+                await GetCountryFeature.FeatureTearDownAsync();
             }
         }
     }

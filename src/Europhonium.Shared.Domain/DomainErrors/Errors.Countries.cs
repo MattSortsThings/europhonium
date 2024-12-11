@@ -1,4 +1,5 @@
 using ErrorOr;
+using Europhonium.Shared.Domain.Countries;
 
 namespace Europhonium.Shared.Domain.DomainErrors;
 
@@ -15,5 +16,10 @@ public static class Errors
             Error.Conflict("Countries.CountryCodeCode",
                 "A country with the specified country code already exists.",
                 new Dictionary<string, object> { { nameof(countryCode), countryCode } });
+
+        public static Error CountryNotFound(CountryId countryId) =>
+            Error.NotFound("Countries.CountryNotFound",
+            "No country exists with the specified ID.",
+            new Dictionary<string, object> { { nameof(countryId), countryId.Value } });
     }
 }

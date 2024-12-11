@@ -13,4 +13,6 @@ internal static class ResourceMapping
             country.CompetingBroadcastIds.Select(id => id.Value).ToArray(),
             country.VotingBroadcastIds.Select(id => id.Value).ToArray());
     }
+
+    internal static CountryId ToCountryId(this Guid countryId) => CountryId.FromValue(countryId);
 }

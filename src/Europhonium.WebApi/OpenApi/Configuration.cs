@@ -17,13 +17,15 @@ public static class Configuration
 
         app.UseSwaggerUI(options =>
         {
-            foreach (ApiVersionDescription description in app.DescribeApiVersions())
-            {
-                var url = $"/swagger/{description.GroupName}/swagger.json";
-                var name = description.GroupName.ToUpperInvariant();
+            options.SwaggerEndpoint("/swagger/public-v1/swagger.json", "Public V1");
 
-                options.SwaggerEndpoint(url, name);
-            }
+            // foreach (ApiVersionDescription description in app.DescribeApiVersions())
+            // {
+            //     var url = $"/swagger/{description.GroupName}/swagger.json";
+            //     var name = description.GroupName.ToUpperInvariant();
+            //
+            //     options.SwaggerEndpoint(url, name);
+            // }
         });
     }
 }

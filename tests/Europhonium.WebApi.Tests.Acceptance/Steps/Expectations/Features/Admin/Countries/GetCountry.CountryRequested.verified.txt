@@ -1,0 +1,10 @@
+﻿{
+  country: {
+    id: Guid_1,
+    countryCode: GB,
+    countryName: United Kingdom,
+    participatingContestIds: [],
+    competingBroadcastIds: [],
+    votingBroadcastIds: []
+  }
+}

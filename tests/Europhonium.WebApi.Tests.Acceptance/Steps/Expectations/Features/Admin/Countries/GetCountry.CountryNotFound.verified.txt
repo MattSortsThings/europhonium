@@ -1,0 +1,9 @@
+﻿{
+  type: https://tools.ietf.org/html/rfc9110#section-15.5.5,
+  title: Countries.CountryNotFound,
+  status: 404,
+  detail: No country exists with the specified ID.,
+  countryId: Guid_1,
+  traceId: {Scrubbed},
+  instance: GET /api/v1/admin/countries/Guid_1
+}

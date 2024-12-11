@@ -19,6 +19,13 @@ internal static class EndpointMapping
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status409Conflict);
 
+        group.MapGet("/{countryId:guid}", GetCountry.ExecuteAsync)
+            .WithName(nameof(GetCountry))
+            .WithDisplayName("Get Country")
+            .WithSummary("Retrieves a single country")
+            .Produces<GetCountry.Response>()
+            .ProducesProblem(StatusCodes.Status404NotFound);
+
         return routeBuilder;
     }
 }
