@@ -12,6 +12,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution_items", "solution_
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7908EF29-E7A2-4A47-A5A4-A03595138056}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.WebApi", "src\Europhonium.WebApi\Europhonium.WebApi.csproj", "{38971E4D-8930-496C-A421-2BE6FFB8459D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Shared.Domain", "src\Europhonium.Shared.Domain\Europhonium.Shared.Domain.csproj", "{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Shared.Infrastructure", "src\Europhonium.Shared.Infrastructure\Europhonium.Shared.Infrastructure.csproj", "{BF22E3D3-0757-433E-80E0-00EA791E67BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Modules.AdminApi.V1", "src\Europhonium.Modules.AdminApi.V1\Europhonium.Modules.AdminApi.V1.csproj", "{77664C29-4B44-49AC-B70F-0B70E2163244}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Modules.PublicApi.V1", "src\Europhonium.Modules.PublicApi.V1\Europhonium.Modules.PublicApi.V1.csproj", "{4FD6054C-9F79-40AD-91C4-41E00FB973B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +31,34 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38971E4D-8930-496C-A421-2BE6FFB8459D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38971E4D-8930-496C-A421-2BE6FFB8459D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38971E4D-8930-496C-A421-2BE6FFB8459D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38971E4D-8930-496C-A421-2BE6FFB8459D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF22E3D3-0757-433E-80E0-00EA791E67BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF22E3D3-0757-433E-80E0-00EA791E67BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF22E3D3-0757-433E-80E0-00EA791E67BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF22E3D3-0757-433E-80E0-00EA791E67BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77664C29-4B44-49AC-B70F-0B70E2163244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77664C29-4B44-49AC-B70F-0B70E2163244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77664C29-4B44-49AC-B70F-0B70E2163244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77664C29-4B44-49AC-B70F-0B70E2163244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FD6054C-9F79-40AD-91C4-41E00FB973B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD6054C-9F79-40AD-91C4-41E00FB973B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD6054C-9F79-40AD-91C4-41E00FB973B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD6054C-9F79-40AD-91C4-41E00FB973B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38971E4D-8930-496C-A421-2BE6FFB8459D} = {7908EF29-E7A2-4A47-A5A4-A03595138056}
+		{305E5DA0-C0DB-4727-98A1-4F39F9E1F9C8} = {7908EF29-E7A2-4A47-A5A4-A03595138056}
+		{BF22E3D3-0757-433E-80E0-00EA791E67BF} = {7908EF29-E7A2-4A47-A5A4-A03595138056}
+		{77664C29-4B44-49AC-B70F-0B70E2163244} = {7908EF29-E7A2-4A47-A5A4-A03595138056}
+		{4FD6054C-9F79-40AD-91C4-41E00FB973B0} = {7908EF29-E7A2-4A47-A5A4-A03595138056}
 	EndGlobalSection
 EndGlobal
