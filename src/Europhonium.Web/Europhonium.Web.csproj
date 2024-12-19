@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Europhonium.Apis.Admin.V1\Europhonium.Apis.Admin.V1.csproj"/>
+    <ProjectReference Include="..\Europhonium.Apis.Public.V1\Europhonium.Apis.Public.V1.csproj"/>
+  </ItemGroup>
+
+</Project>
