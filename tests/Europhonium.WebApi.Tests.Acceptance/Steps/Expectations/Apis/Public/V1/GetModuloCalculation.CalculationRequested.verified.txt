@@ -1,0 +1,8 @@
+﻿{
+  moduloCalculation: {
+    dividend: 10,
+    modulus: 4,
+    remainder: 2,
+    dateRequested: {Scrubbed}
+  }
+}

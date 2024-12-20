@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{84EA84C6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.Domain.Tests.Unit", "tests\Europhonium.Domain.Tests.Unit\Europhonium.Domain.Tests.Unit.csproj", "{BEB63DD7-F9A1-4CEC-9772-3CD9B1010567}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Europhonium.WebApi.Tests.Acceptance", "tests\Europhonium.WebApi.Tests.Acceptance\Europhonium.WebApi.Tests.Acceptance.csproj", "{4E85D73C-7558-4FBB-9A62-794184190B96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{BEB63DD7-F9A1-4CEC-9772-3CD9B1010567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB63DD7-F9A1-4CEC-9772-3CD9B1010567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB63DD7-F9A1-4CEC-9772-3CD9B1010567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E85D73C-7558-4FBB-9A62-794184190B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E85D73C-7558-4FBB-9A62-794184190B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E85D73C-7558-4FBB-9A62-794184190B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E85D73C-7558-4FBB-9A62-794184190B96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B35CDEB-F0A1-4547-BEDA-8BECF16B5E3D} = {D4947124-E86A-4DFD-99DD-4C0A95C70464}
@@ -69,5 +75,6 @@ Global
 		{3C5E8BDD-3384-4A75-B4FA-13D8C2C9F867} = {D4947124-E86A-4DFD-99DD-4C0A95C70464}
 		{7A397453-DA06-416F-A155-5F8E227BA170} = {D4947124-E86A-4DFD-99DD-4C0A95C70464}
 		{BEB63DD7-F9A1-4CEC-9772-3CD9B1010567} = {84EA84C6-DB7B-415A-B9A8-C27111243607}
+		{4E85D73C-7558-4FBB-9A62-794184190B96} = {84EA84C6-DB7B-415A-B9A8-C27111243607}
 	EndGlobalSection
 EndGlobal

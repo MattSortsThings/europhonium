@@ -1,0 +1,24 @@
+﻿{
+  greetings: [
+    {
+      message: Hoi!,
+      language: Dutch,
+      requestId: Guid_1
+    },
+    {
+      message: Hoi!,
+      language: Dutch,
+      requestId: Guid_2
+    },
+    {
+      message: Hoi!,
+      language: Dutch,
+      requestId: Guid_3
+    },
+    {
+      message: Hoi!,
+      language: Dutch,
+      requestId: Guid_4
+    }
+  ]
+}
