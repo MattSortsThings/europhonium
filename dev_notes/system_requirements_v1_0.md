@@ -397,15 +397,15 @@ Any HTTP request to a *Public API* endpoint must include *either* the Public Api
 
 #### S1.0a1 - Problem Details
 
-Any request that results in an `Error` is mapped to a `ProblemDetails` object and returned as an HTTP result with the appropriate status code.
+Any request that results in an `Error` should be mapped to a `ProblemDetails` object and returned as an HTTP result with the appropriate status code.
 
 #### S1.0a2 - Global Exception Handling
 
-If the system throws an uncaught exception while handling an HTTP request, it returns an HTTP response with the `"InternalServerError"` status code and a serialized `ProblemDetails` object stating the name of the exception type but exposing no execution details.
+If the system throws an uncaught exception while handling an HTTP request, it should return an HTTP response with the `"InternalServerError"` status code and a serialized `ProblemDetails` object stating the name of the exception type but exposing no execution details.
 
 #### S1.0a3 - Versioning
 
-Each API is versioned as a whole, using major/minor semantic versioning as a URL segment, for example:
+Each API should versioned as a whole, using major/minor semantic versioning as a URL segment, for example:
 
 ```http
 GET {{host}}adminapi/v1.0countries
@@ -417,11 +417,11 @@ GET {{host}}/publicapi/v1.0/queryable-countries
 
 #### S1.0a4 - OpenAPI Pages
 
-Each OpenAPI document is served as an interactive documentation page in development and production. No authentication is performed on documentation endpoints.
+Each OpenAPI document should be served as an interactive documentation page in development and production. Requests to OpenAPI document endpoints should not be authenticated.
 
 #### S1.0a5 - Rate Limiting
 
-The system uses simple rate limiting.
+The system should use simple rate limiting.
 
 ## Features out of scope
 
