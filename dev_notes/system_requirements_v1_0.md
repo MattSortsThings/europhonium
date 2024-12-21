@@ -181,7 +181,7 @@ As the Admin, I want to delete a single broadcast from the system, identified by
 
 #### A1.0d1 - *Admin API* OpenAPI Document
 
-Each minor version of the *Admin API* serves its own OpenAPI document.
+Each minor version of the *Admin API* should serve its own OpenAPI document.
 
 #### A1.0d2 - *Admin API* Security
 
@@ -385,7 +385,7 @@ I want to be able to specify the returned rankings sort order *and/or* page inde
 
 #### P1.0h1 - *Public API* OpenAPI Document
 
-Each minor version of the *Public API* serves its own OpenAPI document.
+Each minor version of the *Public API* should serve its own OpenAPI document.
 
 #### P1.0h2 - *Public API* Security
 
@@ -408,11 +408,11 @@ If the system throws an uncaught exception while handling an HTTP request, it sh
 Each API should versioned as a whole, using major/minor semantic versioning as a URL segment, for example:
 
 ```http
-GET {{host}}adminapi/v1.0countries
+GET {{host}}/admin/api/v1.0/countries
 ```
 
 ```http
-GET {{host}}/publicapi/v1.0/queryable-countries
+GET {{host}}/public/api/v1.0/queryable-countries
 ```
 
 #### S1.0a4 - OpenAPI Pages
